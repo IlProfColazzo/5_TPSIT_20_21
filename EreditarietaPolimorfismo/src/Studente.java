@@ -1,4 +1,5 @@
 public class Studente extends Persona{
+	
 	private float media;
 
 	public Studente(String nome, String cognome, String cF, float media) {
@@ -8,6 +9,5 @@ public class Studente extends Persona{
 		super(nome, cognome, cF);
 		this.media = media;
 	}
-	
 	
 }

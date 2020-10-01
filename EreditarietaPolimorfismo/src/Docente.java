@@ -1,4 +1,5 @@
 public class Docente extends Persona{
+	
 	private float RAL; //RAL = Retribuzione Annua Lorda
 
 	public Docente(String nome, String cognome, String cF, float rAL) {
