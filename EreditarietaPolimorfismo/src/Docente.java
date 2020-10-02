@@ -11,4 +11,10 @@ public class Docente extends Persona{
 	}
 	
 	
+	@Override
+	public void getQualifica() {
+		// TODO Auto-generated method stub
+		System.out.println("Io sono un docente");
+	}
+	
 }

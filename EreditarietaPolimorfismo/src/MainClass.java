@@ -13,6 +13,14 @@ public class MainClass {
 		lista.add(doc);
 		lista.add(p);
 		
+		/*p.getQualifica();
+		st.getQualifica();
+		doc.getQualifica();*/
+		
+		for(Persona tmp : lista) {
+			tmp.getQualifica();
+		}
+		
 		//ArrayList<Object> obj = new ArrayList<Object>();
 		
 	

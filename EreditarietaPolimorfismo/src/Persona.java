@@ -13,5 +13,10 @@ public class Persona {
 		CF = cF;
 	}
 	
+	public void getQualifica() {
+		
+		System.out.println("Io non sono nessuno");
+	}
+	
 	
 }

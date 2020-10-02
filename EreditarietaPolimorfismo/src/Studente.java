@@ -10,4 +10,12 @@ public class Studente extends Persona{
 		this.media = media;
 	}
 	
+	@Override
+	public void getQualifica() {
+		// TODO Auto-generated method stub
+		System.out.println("Io sono uno studente");
+	}
+	
+
+	
 }
