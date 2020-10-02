@@ -19,10 +19,11 @@ public class MainClass {
 		
 		for(Persona tmp : lista) {
 			tmp.getQualifica();
+			/*Utilizzo del polimorfismo: 
+			 * Java è in grado di riconoscere il tipo
+			 * dell'oggetto contenuto nel rifermineto tmp e di
+			 * conseguenza invocare il metodo opportuno*/
 		}
-		
-		//ArrayList<Object> obj = new ArrayList<Object>();
-		
-	
+			
 	}
 }
