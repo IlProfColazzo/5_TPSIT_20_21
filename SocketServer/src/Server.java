@@ -22,7 +22,7 @@ public class Server {
 			Socket s = this.mioSocket.accept();
 			/**Chiudiamo il socket non più necessario*/
 			this.mioSocket.close();
-			/**Creo il socket relativo al Client connesso con i relativi stream di input e output*/
+			/**Creo l'oggetto ClientConnesso con i relativi stream di input e output*/
 			client = new ClientConnesso(s);
 			
 		} catch (IOException e) {
