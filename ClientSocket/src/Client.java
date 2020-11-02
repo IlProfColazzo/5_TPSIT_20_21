@@ -56,6 +56,8 @@ public class Client {
 	
 	public void chiudi() {
 		try {
+			this.fromServer.close();
+			this.toServer.close();
 			this.mioSocket.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

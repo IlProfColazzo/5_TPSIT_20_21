@@ -47,6 +47,8 @@ public class ClientConnesso {
 	
 	public void chiudi() {
 		try {
+			this.fromClient.close();
+			this.toClient.close();
 			this.s.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
