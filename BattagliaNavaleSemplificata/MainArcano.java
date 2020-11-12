@@ -6,7 +6,7 @@ import java.util.Scanner;
 * @author Arcano Francesco
 */
 
-public class Main {
+public class MainArcano {
 	private static int d=10; //dimensione fissa della matrice
 	/**Funzione per l'inserimento della mappa
 	 * @param mappa
