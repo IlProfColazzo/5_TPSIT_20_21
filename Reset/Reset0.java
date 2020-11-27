@@ -3,14 +3,15 @@ import java.util.Scanner;
 public class Reset0 {
 
 	public static void main(String[] args) {
-		esercizio1();
-		esercizio2();
-		esercizio3();
+		// TODO Auto-generated method stub
+		//esercizio1();
+		//esercizio2();
+		//esercizio3();
+		esercizio4();
 			
 	}
 	
-	/**Esercizio 1
-	Scrivere un metodo che legge da tastiera due valori reali e stampi a video:
+	/**Scrivere un metodo che legge da tastiera due valori reali e stampi a video:
 		• la somma;
 		• il valore assoluto della differenza;
 		• il valore più grande dei numeri inseriti;
@@ -18,7 +19,6 @@ public class Reset0 {
 	*/
 	
 	public static void esercizio1() {
-		System.out.println("#####ESERCIZIO 1#####");
 		float var1, var2;
 		
 		Scanner tastiera = new Scanner(System.in);
@@ -49,14 +49,12 @@ public class Reset0 {
 		
 	}
 	
-	/**Esercizio 2
-	Date in input le lunghezze di tre segmenti, scrivere un metodo che permetta di definire se i tre segmenti
+	/**Date in input le lunghezze di tre segmenti, scrivere un metodo che permetta di definire se i tre segmenti
 	possono costituire un triangolo. Specificare anche il tipo di triangolo: isoscele, equilatero, scaleno.
 	Tre segmenti formano un triangolo se ciascuno è minore della somma degli altri due e maggiore della loro
 	differenza.*/
 	
 	public static void esercizio2() {
-		System.out.println("#####ESERCIZIO 2#####");
 		
 		float lato1, lato2, lato3;
 		
@@ -93,8 +91,7 @@ public class Reset0 {
 	}
 	
 	
-	/**Esercizio 3
-	Scrivere un metodo che permette di acquisire i valori di un vettore di lunghezza definita dall’utente e stampi
+	/**Scrivere un metodo che permette di acquisire i valori di un vettore di lunghezza definita dall’utente e stampi
 	a video:
 	• la somma di tutti gli elementi;
 	• il valore più grande;
@@ -105,7 +102,7 @@ public class Reset0 {
 	
 	*/
 	public static void esercizio3() {
-		System.out.println("#####ESERCIZIO 3#####");
+		
 		System.out.println("Inserisci la dimensione del vettore:");
 		Scanner tastiera = new Scanner(System.in);
 		int dim = tastiera.nextInt();
@@ -149,20 +146,104 @@ public class Reset0 {
 		}
 		else {
 			System.out.println("Il vettore non è palindromo");
-		}		
+		}
+		
+		
 	}
 	
+
 	/**Esercizio 4
 	Scrivere un metodo che permette di acquisire i valori di una matrice quadrata NxN (N è definita dall’utente).
 	Il metodo deve:
 	• per ogni riga stampare la somma di tutta gli elementi;
 	• per ogni colonna stampare la somma di tutta gli elementi;
-	• stampare un messaggio che indiche se la matrice è un quadrato magico.
+	• stampare un messaggio che indica se la matrice è un quadrato magico.
 	Un quadrato magico è una disposizione di numeri interi in forma di tabella quadrata in cui siano rispettate
 	due condizioni: i valori siano tutti distinti tra loro e la somma dei numeri presenti in ogni riga, in ogni colonna,
 	e in entrambe le diagonali, dia sempre lo stesso risultato.
 	*/
-
+	public static void esercizio4() {
+		
+		System.out.println("Inserisci il numero di righe/colonne: ");
+		Scanner tastiera = new Scanner(System.in);
+		
+		int dim = tastiera.nextInt();
+		
+		int mat[][] = new int[dim][dim]; //il primo dim si riferisce alla righe, il secondo alle colonne
+		int somme[] = new int[(dim*2)+2]; //dichiaro un vettore che conterrà tutte le somme
+		int i_somma=0;
+		
+		for(int i=0; i<dim; i++) {
+			for(int j=0; j<dim; j++) {
+				System.out.println("Inserisci il valore: ");
+				mat[i][j] = tastiera.nextInt();
+			}
+		}
+		
+		/*for(int i=0; i<dim; i++) {
+			for(int j=0; j<dim; j++) {
+				System.out.print(mat[i][j] + " ");
+			}
+			System.out.println();
+		}*/
+		int somma = 0;
+		for(int i=0; i<dim; i++) {
+			somma = 0;
+			for(int j=0; j<dim; j++) {
+				somma = somma + mat[i][j];
+			}
+			System.out.println("La somma sulla riga "+i+" vale "+somma);
+			somme[i_somma] = somma;
+			i_somma++;
+		}
+		
+		somma = 0;
+		for(int j=0; j<dim; j++) {
+			somma = 0;
+			for(int i=0; i<dim; i++) {
+				somma = somma + mat[i][j];
+			}
+			System.out.println("La somma sulla colonna "+j+" vale "+somma);
+			somme[i_somma] = somma;
+			i_somma++;
+		}
+		
+		somma = 0;
+		for(int i=0; i<dim; i++) {
+			somma = somma + mat[i][i];
+		}
+		System.out.println("La somma sulla diagonale principale vale "+somma);
+		somme[i_somma] = somma;
+		i_somma++;
+		
+		somma = 0;
+		for(int i=0; i<dim; i++) {
+			somma = somma + mat[i][dim-1-i];
+		}
+		System.out.println("La somma sulla diagonale secondaria vale "+somma);
+		somme[i_somma] = somma;
+		i_somma++;
+		
+		for(int i=0;i<somme.length;i++) {
+			System.out.println("Elemento " + i +": " + somme[i]);
+		}
+		
+		boolean magico = true;
+		for(int i=0;i<somme.length-1 && magico == true;i++) {
+			if(somme[i]!=somme[i+1])
+				magico = false;
+		}
+		
+		if(magico==true) {
+			System.out.println("Il quadrato è magico");
+		}
+		else {
+			System.out.println("Il quadrato non è magico");
+		}
+		
+		
+	}
+	
 
 	/**Esercizio 5
 	Scrivere un metodo che permetta di contare all’interno di un file di testo:
@@ -171,6 +252,4 @@ public class Reset0 {
 	e minuscole.
 	Si supponga che il file abbia una sola parola per riga.
 	*/
-	
-
 }
