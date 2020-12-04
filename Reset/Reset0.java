@@ -1,13 +1,18 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
+
 
 public class Reset0 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		//esercizio1();
 		//esercizio2();
 		//esercizio3();
-		esercizio4();
+		//esercizio4();
+		//esercizio5();
+		esercizio6();
 			
 	}
 	
@@ -251,5 +256,61 @@ public class Reset0 {
 	• Il numero di occorrenze di ogni singolo carattere dell’alfabeto senza distinzione tra lettere maiuscole
 	e minuscole.
 	Si supponga che il file abbia una sola parola per riga.
+	 * @throws FileNotFoundException 
 	*/
+	
+	public static void esercizio5() throws FileNotFoundException {
+		
+		System.out.println("Dammi la parola da ricercare: ");
+		Scanner tastiera = new Scanner(System.in);
+		String toFind = tastiera.nextLine(); //Stringa da ricercare nel file
+		int occ[] = new int [26];
+		
+		
+		File fileIn = new File("input.txt");
+		Scanner myReader = new Scanner(fileIn);
+		int cnt = 0;
+		int cntch = 0;
+		 while (myReader.hasNextLine()) { //finchè ci sono righe nel file
+	        String data = myReader.nextLine();  //leggi l'intera riga e mettila in data
+	        if(toFind.compareTo(data)==0) //compareTo torna 0 se toFind è uguale a data
+	        	cnt++;
+        	for(int i=0; i< data.length(); i++) { //per ogni carattere della parola
+        		char ch =  Character.toLowerCase(data.charAt(i));
+        		occ[ch - 97]++; //utilizzo il codice ascii del carattere e sottraendo 97 ottengo l'indice del vettore delle occ.
+        		
+        	}
+	      }
+		 myReader.close(); //permette di chiudere il file
+		 System.out.println("La parola " + toFind + " compare " + cnt + " volte");
+		 for(int i=0; i<occ.length;i++) {
+			 System.out.println("Il carattarere " + (char)(i+97) + " compare " + occ[i] + " volte.");
+		 }
+		
+	}
+	
+	
+	/**Esercizio 6
+	Scrivere un metodo che permetta di analizzare i vicini di una cella di una matrice. 
+	I valori della matrice sono contenuti all’interno di un file di testo in cui:
+		• sulla prima riga sono contenuti due interi che indicano il numero di righe N e il numero di colonne M della matrice
+		• nelle N righe successive sono contenuti i valori (interi) di ogni riga della matrice. 
+	Ogni valore è separato da uno spazio.
+	Esempio file.txt
+	
+	3 7
+	1  2  3  4  5  6  7
+	8  9  40 11 12 13 14
+	15 16 17 18 19 20 34
+	
+	Il metodo dovrà individuare tutte le celle che hanno come valore la somma dei valori dei propri vicini.
+	Esempio:
+		la cella con indici 1 2 è valida. (17 + 9 + 3 + 11 = 40)
+		la cella con indici 2 6 è valida. (20 + 14 = 34)
+	*/
+	
+	public static void esercizio6() {
+		//TODO
+	}
+	
 }
