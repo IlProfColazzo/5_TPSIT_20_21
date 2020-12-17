@@ -14,7 +14,8 @@ public class Reset0 {
 		// esercizio3();
 		// esercizio4();
 		// esercizio5();
-		esercizio6();
+		//esercizio6();
+		esercizioPreProva();
 
 	}
 
@@ -599,6 +600,114 @@ public class Reset0 {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+	
+	/**
+	 	La conformazione di un fondale marino è memorizzata in una mappa di dimensioni NxN. 
+	  	La mappa descrive la profondità in metri nel range 0 – 5000 metri. N è definita dall’utente tramite input da tastiera. 
+	  	Gli interi che costituiscono la mappa sono separati da uno spazio.
+
+		Scrivere un programma in Java per verificare eventuali variazioni del fondale dovuti ad eruzioni laviche marine e/o a spostamento tettonico. 
+		A tal proposito si assuma di avere a disposizione due files di testo Map1.txt e Map2.txt contenenti le profondità del fondale scattate a 36 mesi di distanza l’una dall’altra. 
+		Il programma legge da tastiera 3 interi. I primi due rappresentano le coordinate del centro di un quadrato di dimensioni MxM all’ interno della mappa, il terzo rappresenta il valore di M (si assuma M dispari e minore di N). 
+		Si faccia l’assunzione che il quadrato di interesse definito dall’utente sia interamente contenuto nella mappa. (Non è necessario controllare i bordi)
+		
+		In caso di effettiva variazione, il programma deve:
+		1.	stampare a video le coordinate dei punti all’ interno del quadrato di interesse e le corrispondenti percentuali di variazione solo in caso siano diverse da zero.
+		2.	nel caso tutti i punti all’ interno del quadrato di interesse abbiano subito lo stesso tipo di variazione (verso l’alto o verso il basso) ma non necessariamente della stessa quantità, stampare a video il messaggio “SPOSTAMENTO TETTONICO” senza indicare le percentuali.
+		Esempio (N=6)
+		Map1.txt		
+		1200 1205 1213 1220	1225 999   
+		1240 1225 1120 1130	1164 1110
+		1320 1230 1011 963  1102 1017
+		1410 1340 1100 940  1010 960
+		1501 1345 1204 923  1002 1001
+		1507 1370 1230 1100	1001 901	
+		Map2.txt (es.1)
+		1200 1205 1213 1220	1225 999   
+		1240 1225 1120 1130	1164 1110
+		1320 1230 1011 963  1102 1017
+		1410 1340 1100 940  1010 960
+		1522 1352 1150 923  1002 1001
+		1537 1380 1245 1100	1001 901	
+		Map2.txt (es.2)
+		1200 1205 1213 1220	1225 999   
+		1240 1225 1120 1130	1164 1110
+		1320 1230 1011 963  1102 1017
+		1310 1240 1000 940  1010 960
+		1401 1245 1104 923  1002 1001
+		1407 1270 1130 1100	1001 901
+		
+		Es.1: Il programma stampa a video le seguenti informazioni. In questo  caso N=6, M = 3 e il centro della matrice MxM ha coordinate 4 1
+		
+		4,0:  1.40%
+		4,1:  0.52%
+		4,2:  -4.49%
+		5,0:  1.99%
+		5,1:  0.73%
+		5,2:  1.22%
+
+		Es.2: Il programma stampa a video le seguenti informazioni. In questo  caso N=6, M = 3 e il centro della matrice MxM ha coordinate 4 1
+		
+		3,0:  -7.09%
+		3,1:  -7.46%
+		3,2:  -9.09%
+		4,0:  -6.66%
+		4,1:  -7.43%
+		4,2:  -8.31%
+		5,0:  -6.64%
+		5,1:  -7.30%
+		5,2:  -8.13%
+		SPOSTAMENTO TETTONICO
+
+	  **/
+	
+	public static void esercizioPreProva() throws FileNotFoundException {
+		Scanner myReaderMap1 = new Scanner(new File("Map1.txt"));
+		Scanner myReaderMap2 = new Scanner(new File("Map2.txt"));
+		Scanner tastiera = new Scanner(System.in);
+
+		System.out.println("Dammi la dimensione della matrice:");
+		int N = tastiera.nextInt(); 
+		int map1[][] = new int[N][N];
+		int map2[][] = new int[N][N];
+		
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
+					map1[i][j] = myReaderMap1.nextInt();
+					map2[i][j] = myReaderMap2.nextInt();
+			}
+		}
+		myReaderMap1.close();
+		myReaderMap2.close();
+		System.out.println("Dammi x0 (coordinata del centro):");
+		int x0 = tastiera.nextInt();
+		System.out.println("Dammi y0 (coordinata del centro):");
+		int y0 = tastiera.nextInt();
+		System.out.println("Dammi M (dimensione della sottomatrice):");
+		int M = tastiera.nextInt();
+		float diff = 0;
+		int istart=x0-M/2;
+		int jstart=y0-M/2;
+		boolean up = true;
+		boolean down = true;
+		for (int i = istart; i < istart+M; i++) {
+			for (int j = jstart; j < istart+M; j++) {
+				diff = (float)(map2[i][j]*100)/map1[i][j] - 100;
+				if (diff != 0) {
+					System.out.println(i+","+j+": "+diff+"%");
+					if(diff<0)
+						up = false;
+					else
+						down = false;
+				}
+			}
+		}
+		if(up==true ||down==true) {
+			System.out.println("SPOSTAMENTO TETTONICO");
+		}
+		tastiera.close();
+				 
 	}
 
 }
