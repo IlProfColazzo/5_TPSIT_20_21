@@ -692,7 +692,7 @@ public class Reset0 {
 		boolean up = true;
 		boolean down = true;
 		for (int i = istart; i < istart+M; i++) {
-			for (int j = jstart; j < istart+M; j++) {
+			for (int j = jstart; j < jstart+M; j++) {
 				diff = (float)(map2[i][j]*100)/map1[i][j] - 100;
 				if (diff != 0) {
 					System.out.println(i+","+j+": "+diff+"%");
