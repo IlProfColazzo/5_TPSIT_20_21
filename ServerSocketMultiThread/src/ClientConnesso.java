@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 import java.util.zip.InflaterInputStream;
 
-public class ClientConnesso {
+public class ClientConnesso extends Thread{
 	
 	private Socket s; //Socket connesso da utilizzare per trasmettere/ricevere dati
 	private DataOutputStream toClient;
@@ -22,18 +22,29 @@ public class ClientConnesso {
 		}
 	}
 	
-	public void invia(String daInviare) {
+	@Override
+	public void run() {
+		System.out.println("S--> Sono in attesa di una stringa da " +s.getPort());
+		String letta = leggiStringa(); //leggo una stringa che mi invierà il client
+		System.out.println("S--> Il client " +s.getPort()+ " mi ha inviato " + letta);
+		String daInviare = letta.toUpperCase();
+		scriviStringa(daInviare+"\n"); //restituisco al client la stessa stringa ma convertita in maiuscolo
+		System.out.println("S--> Invio al client " +s.getPort()+ " la stringa "+ daInviare);
+		System.out.println("S--> Ho terminato il mio compito. Chiudo la connessione");
+		chiudi();
+	}
+	
+	public void scriviStringa(String daInviare) {
+		/**Invia la stringa daInviare al Client connesso*/
 		try {
 			this.toClient.writeBytes(daInviare);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		/**Invia la stringa daInviare al Client connesso*/
-	
 	}
 	
-	public String ricevi() {
+	public String leggiStringa() {
 		String s = "";
 		
 		try {

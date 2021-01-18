@@ -1,34 +1,24 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class ClientMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		BufferedReader tastiera;
-		String stringaUtente,stringaFromServer;
 		
 		Client c = new Client("127.0.0.1", 42521);
 		c.connetti();
-		
-		tastiera = new BufferedReader(new InputStreamReader(System.in));
-		
-		try {
-			System.out.println("C-->Inserisci la stringa che vuoi inviare al server....");
-			stringaUtente = tastiera.readLine();
-			System.out.println("C-->Invio la stringa al server e attendo....");
-			c.invia(stringaUtente+"\n");
-			System.out.println("C-->...attendo risposta dal server....");
-			stringaFromServer = c.ricevi(); //metodo bloccante
-			System.out.println("C-->Risposta dal server --> " + stringaFromServer);
-			System.out.println("C-->Chiudo la connessione");
-			c.chiudi();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Scanner tastiera = new Scanner(System.in);
+		System.out.println("[C] Inserisci una parola: ");
+		String parola = tastiera.next();
+		System.out.println("[C] La parola inserita e': "+parola);
+		c.invia(parola+"\n");
+		String parolaRicevuta = c.ricevi();
+		System.out.println("[C] Il server mi ha inviato: "+parolaRicevuta);
+		c.chiudi();
 
 	}
 
