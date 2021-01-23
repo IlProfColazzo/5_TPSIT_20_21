@@ -13,8 +13,6 @@ public class ServerMain {
 		serverConnesso.chiudi();
 		
 		
-		
-		
 	}
 
 }
