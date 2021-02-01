@@ -12,13 +12,15 @@ public class ClientMain {
 		Client c = new Client("127.0.0.1", 42521);
 		c.connetti();
 		Scanner tastiera = new Scanner(System.in);
-		System.out.println("[C] Inserisci una parola: ");
-		String parola = tastiera.next();
-		System.out.println("[C] La parola inserita e': "+parola);
-		c.invia(parola+"\n");
-		String parolaRicevuta = c.ricevi();
-		System.out.println("[C] Il server mi ha inviato: "+parolaRicevuta);
-		c.chiudi();
+		while(true) {
+			System.out.println("[C] Inserisci una parola: ");
+			String parola = tastiera.next();
+			System.out.println("[C] La parola inserita e': "+parola);
+			c.invia(parola+"\n");
+			String parolaRicevuta = c.ricevi();
+			System.out.println("[C] Il server mi ha inviato: "+parolaRicevuta);
+		}
+		//c.chiudi();
 
 	}
 
