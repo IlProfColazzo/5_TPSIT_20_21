@@ -1,0 +1,245 @@
+html,body{
+	font-family:Arial, Helvetica, sans-serif;
+	margin:0px;
+	padding:0px;
+	font-size: 16px;
+	background-image:url('Immagine1.jpg');
+	height: 100%;
+}
+
+#container{
+
+	height: 100%; 
+	width: auto;
+	min-height: 500px;
+	min-width:1000px;	
+}
+
+#logosup{
+    height: 100%;
+    width: 100%;
+}
+
+
+#logo{
+	height: 100%;
+    width:15%;
+}
+
+#Ptitolo{
+    text-align:center;
+	width: 85%;
+	float: right;	
+    font-size:60.0pt;
+    vertical-align: middle;
+    position: relative;
+    top: 17%;
+    line-height:100%;
+    margin: 0;
+    font-family:"Edwardian Script ITC";
+}
+
+#header{	
+	float:left;
+	text-align: center;
+	width:100%;
+	height: 20%; 
+	min-height: 70px;
+	min-width:1000px;
+	border-left-style:none;
+	border-right-style:none;
+	border-top-style:none;
+	border-bottom-style: solid;
+	border-bottom-color:#CC0000;
+	border-bottom-width:10px;
+}
+
+#sidebar{
+	text-align:center;
+	height: 75.3%;
+	width: 20%;
+	min-width: 220px; /*Prima c'era 100px*/	
+	min-height: 450px;	
+	float: left;
+	padding-left:10px;
+	overflow-y:auto;
+}
+
+#main{
+    min-height: 450px;	
+	float: right;
+	text-align: center;
+	height: 75.3%;
+	width: 77%;
+	overflow-y:auto;
+	
+}
+
+#footer{	
+	height: 20px;
+	clear: both;
+	width: 100%;
+	background: black;
+	color: white;
+	text-align: center;
+}
+
+
+
+#oggetti{
+	float: left;
+	height: 100px;
+	font-size:23px;
+}
+
+#DivRegistrazione{
+	height: 100%;
+}
+
+#DivNuovoProdotto{
+	height: 100%;
+}
+
+
+#email_text{
+	width: 98%;
+    float: left;
+}
+
+#password_text{
+	width: 98%;
+    float: left;
+}
+
+
+#registra_button2{
+	width: 300px;
+	float: none;
+	min-width: 0%;
+	
+}
+
+#registra_button3{
+	width: 300px;
+	float: none;
+	min-width: 0%;
+	
+}
+
+
+.Entra {
+	float:left;
+	width:80%;
+	clear:both;
+    min-width: 100%;
+	
+	-moz-box-shadow:inset 0px 0px 0px 1px #f29c93;
+	-webkit-box-shadow:inset 0px 0px 0px 1px #f29c93;
+	box-shadow:inset 0px 0px 0px 1px #f29c93;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #cc0000) );
+	background:-moz-linear-gradient( center top, #fe1a00 5%, #cc0000 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#cc0000');
+	background-color:#fe1a00;
+	-webkit-border-top-left-radius:37px;
+	-moz-border-radius-topleft:37px;
+	border-top-left-radius:37px;
+	-webkit-border-top-right-radius:0px;
+	-moz-border-radius-topright:0px;
+	border-top-right-radius:0px;
+	-webkit-border-bottom-right-radius:37px;
+	-moz-border-radius-bottomright:37px;
+	border-bottom-right-radius:37px;
+	-webkit-border-bottom-left-radius:0px;
+	-moz-border-radius-bottomleft:0px;
+	border-bottom-left-radius:0px;
+	text-indent:0px;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Comic Sans MS;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	line-height:35px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 0px 0px #b23e35;
+}
+.Entra:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cc0000), color-stop(1, #fe1a00) );
+	background:-moz-linear-gradient( center top, #cc0000 5%, #fe1a00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc0000', endColorstr='#fe1a00');
+	background-color:#cc0000;
+}.Entra:active {
+	position:relative;
+	top:1px;
+}
+
+.passwordBox{
+    height:25px; 
+}
+
+.textBox{
+    height:25px;     
+}
+
+
+
+.textBoxR{
+	height: 25px;
+	width: 300px;
+}
+
+#descrizioneOggetto{
+	height: 180px;
+}
+
+
+.passwordBoxR{
+	height: 25px;
+	width: 300px;
+
+}
+
+label.error {	   
+  		margin-bottom: 20px;
+  		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  		background-color: #fcf8e3;
+  		border: 1px solid #fbeed5;
+  		-webkit-border-radius: 4px;
+     	-moz-border-radius: 4px;
+         border-radius: 4px;
+         color: #b94a48;
+}
+
+#pentra{
+	margin:0;
+	text-align: left;
+	font-weight: bold;
+	clear:both;
+}
+
+.labelReg{
+	margin:0;
+	text-align: center;
+	font-weight: bold;
+}
+
+.Welcome
+{
+float:center;
+text-align: center;
+font-weight:normal;
+color:#CC0000;
+letter-spacing:2pt;
+word-spacing:2pt;
+font-size:30px;
+font-family:comic sans, comic sans ms, cursive, verdana, arial, sans-serif;
+line-height:1;
+}
+
+
+table{
+	margin: 0 auto;
+    min-width: 80%;
+}
+
